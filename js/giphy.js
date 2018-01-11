@@ -14,18 +14,21 @@ export class GiphyLand {
         format: 'json'
       },
       success: function(response) {
+        console.log("success");
         let a = Math.floor(Math.random() * 45) + 1;
         let b = a + 5;
         for (var i = a; i < b; i++){
-          console.log(i + "i");
+          let fiveGifs = [];
+          fiveGifs.push(response.data[i].images.fixed_height.url);
+          console.log("5gifs" + fiveGifs);
           $('.result').append(`<img class="gif-place" src="${response.data[i].images.fixed_height.url}">`);
         }
 
-        // complete: function(){
-        //
-        // }
-
       },//success
+        complete: function() {
+          console.log("complete");
+      },
+
       error: function() {
         $('#errors').text("There was an error processing your request. Please try again.");
       }

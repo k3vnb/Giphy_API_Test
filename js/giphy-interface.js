@@ -8,7 +8,10 @@ $(document).ready(function() {
     const gifs = $('#gif-search-input').val();
     $('#gif-search-input').val("");
     const newRequest = new GiphyLand(gifs);
-  
+    if (newRequest.getGiphs() === 'success') {
+
+      console.log("boo" + newRequest.getGiphs());
+    };
   });
 });
 
